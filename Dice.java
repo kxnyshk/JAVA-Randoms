@@ -5,12 +5,12 @@ public class Dice {
 
     static{
     
-        System.out.println("\nLet's roll the DICE... ");
+        System.out.print("Let's roll the DICE.. ");
     }
     public static void main(String[] args){
     
         Random dice = new Random();
-        int roll = 1+dice.nextInt(6);
+        int roll = (dice.nextInt(6)+1);
 
         System.out.print(roll); // ROLL
         key();
@@ -26,7 +26,7 @@ public class Dice {
             main(null);
         }
         else if(key==0){
-            System.out.println("DICE exiting...");
+            System.out.println("\nDICE exiting...");
             return;
         }
         else{
