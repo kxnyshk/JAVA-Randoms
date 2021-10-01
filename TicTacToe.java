@@ -36,6 +36,25 @@ public class TicTacToe {
             printBoard(board);
         }
 
+        // Re-play or exit
+        reRunExit(scan);
+
+    }
+
+    private static void reRunExit(Scanner scan) {
+        System.out.print("Press 1 to re-play. 0 to exit. ");
+        int key = scan.nextInt();
+        if(key==1){
+            main(null);
+        }
+        else if(key==0){
+            System.out.println("Game exited..\n");
+            return;
+        }
+        else{
+            System.out.println("Invalid input! Enter only 1 or 0.\n");
+            reRunExit(scan);
+        }
     }
 
     private static boolean checkGame(char[][] board) {
@@ -84,7 +103,7 @@ public class TicTacToe {
         int AIinput;
         while(true){
             AIinput = (randNum.nextInt(9)+1);
-            if(moveValid(board, AIinput)){
+            if(moveValid(board, Integer.toString(AIinput))){
                 break;
             }
         }
@@ -92,25 +111,25 @@ public class TicTacToe {
         System.out.println("Computer move: " + AIinput);
     }
 
-    private static boolean moveValid(char[][] board, int move){
+    private static boolean moveValid(char[][] board, String move){
         switch(move){
-            case 1:
+            case "1":
                 return (board[0][0] == ' ');
-            case 2:
+            case "2":
                 return (board[0][1] == ' ');
-            case 3:
+            case "3":
                 return (board[0][2] == ' ');
-            case 4:
+            case "4":
                 return (board[1][0] == ' ');
-            case 5:
+            case "5":
                 return (board[1][1] == ' ');
-            case 6:
+            case "6":
                 return (board[1][2] == ' ');
-            case 7:
+            case "7":
                 return (board[2][0] == ' ');
-            case 8:
+            case "8":
                 return (board[2][1] == ' ');
-            case 9:
+            case "9":
                 return (board[2][2] == ' ');
             default:
                 return false;
@@ -122,7 +141,7 @@ public class TicTacToe {
         while(true){
             System.out.print("Your move? (1-9) ");
             userInput = scan.nextLine();
-            if(moveValid(board, Integer.parseInt(userInput))){
+            if(moveValid(board, userInput)){
                 break;
             }
             else{
